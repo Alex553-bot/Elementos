@@ -1,7 +1,8 @@
-public class Lista<T extends Comparable> 
+package LDEC; 
+public class ListaDEC<T extends Comparable> 
 {
 	Nodo<T> root; 
-	public Lista(T dato) {
+	public ListaDEC(T dato) {
 		root = new Nodo<T>(dato);
 	}
 	public T get(int i) {
@@ -139,66 +140,5 @@ public class Lista<T extends Comparable>
 			it = itt; 
 			itt = itt.next; 
 		}
-		System.out.println("a");
 	}
 }
-
-
-
-/**
- * 
-
-	1 1 2 3 5 6 6
-	del(); 
-	=> 1 2 3 5 6
-
-	l: 
-		ordenada => ordena? 
-		=> O(n*n*n): 
-			ordenamiento X
-			l.add(x)?? 
-			[x] que corresponda
-
-	2 casos: 
-	1 caso: es que exista un elemento proximo que sea 
-		nodo actual -> nodo diferente
-	2 caso: no existe un proximo elemento: 
-		nodo actual -> null; 
-	int size;
-
-	it = elemento A: 
-	itt = elemento A: it.value == itt.value && itt!=null) itt = itt.next; 
-
-	lista simple enlace: 
-		it.next = itt; 
-	lista doble enlace: 
-		if (it.next!=itt) : continue; 
-		else: 
-			it.next.prev = null; 
-			itt.prev.next = null;
-			it.next = itt; 
-			itt.prev = it; 	
-	LSEC: 
-	root; 
-		it = elemento A: 
-		itt = elemento A: it.value == itt.value && itt!=root) itt = itt.next; 
-		it.next = itt; //itt sea otro valor o caso contrario itt=root;
-
-	LDEC: 
-		it = elemento A: 
-		itt = elemento A: it.value == itt.value && itt!=root) itt = itt.next; 
-		
-		if (itt==it.next ||itt==root) {
-			root.prev.next = null; 
-			root.prev = it; 
-			it.next.prev = null; 
-			it.next = root; 
-		} else: 
-			itt.prev.next = null; 
-			itt.prev = it; 
-			it.next.prev = null; 
-			it.next = itt; 
-
-		<= seguir avanzando 
-		> agregalo aqui // antes del elemento
- */

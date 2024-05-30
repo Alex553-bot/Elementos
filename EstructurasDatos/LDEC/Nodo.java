@@ -1,3 +1,4 @@
+package LDEC; 
 public class Nodo<T extends Comparable> implements Comparable
 {
 	T dato; 
