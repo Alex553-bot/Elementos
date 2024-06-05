@@ -1,17 +1,20 @@
 package LDEC; 
+
 public class Nodo<T extends Comparable> implements Comparable
 {
-	T dato; 
-	Nodo next; 
-	Nodo prev; 
-	public Nodo(T dato) {
-		this.dato = dato;
-		next = this; 
+	public T value; 
+	public Nodo<T> prev; 
+	public Nodo<T> next; 
+	public Nodo(T value) {
+		this.value = value;
 		prev = this; 
+		next = this;
 	}
 
-	public int compareTo(Object otro) {
-		Nodo n = (Nodo)otro;
-		return dato.compareTo(n.dato);
+	public int compareTo(Object o) {
+		Nodo<T> b = (Nodo)o; 
+		int r = this.value.compareTo(b.value);
+		if (r<=0) return -1; 
+		return 0;
 	}
 }

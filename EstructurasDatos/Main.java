@@ -1,64 +1,59 @@
 //import LDEC.*;
 //import LDE.*; 
 
-//import LSE.*; 
+import LSE.*; 
 //import LSEC.*;
 
 public class Main {
 	public static void main(String[] args) {
-		/**
-		 * CRUD: 
-		 * create // agregar un nuevo elemento
-		 * read  // obtener los elementos, size, obtener uno solo, ...
-		 * update  // actualizacion elemento
-		 * delete // eliminar elementos 
-		 */
-
-		/**
-		Atleta a1 = new Atleta("JOSE ALMAGRO", "PERU", 12, 4, 54);
-		Atleta a2 = new Atleta("JORGE ALMAGRO", "PERU", 132, 54, 5);
-		Atleta a3 = new Atleta("ROSALIA ALMAGRO", "PERU", 14, 53, 4);
-		Atleta a4 = new Atleta("REY ", "PERU", 123, 54, 554);
-		Atleta a5 = new Atleta("TOMY ", "PERU", 2, 0, 5);
-		Lista<Atleta> med = new Lista<>();
-		Atleta inicio =  new Atleta("INF", "", 1000, 1000, 1000);
-		Nodo<Atleta> f = new Nodo<Atleta>(inicio);
-		f.next = new Nodo<Atleta>(new Atleta("F", "", -1, -1, -1));
-
-		med.root = f;
-
-		med.add(a1);
-		med.add(a2);
-		med.add(a3);
-		med.add(a4);
-		med.add(a5);
-		med.print();
-		*/
-		ListaSE<Integer> lista = new ListaSE<Integer>();
-		NodoSE<Integer> primerElemento = new NodoSE<Integer>(2); 
-		primerElemento.next = new NodoSE<Integer>(123); 
-		lista.root = primerElemento;
-		//System.out.println(lista.size()); 
-		//System.out.println(lista.size2()); 
-
-		lista.add(1235); 
-		lista.add2(152343);
-
-		System.out.println(lista.get(0).toString()); 
-		System.out.println(lista.get2(1).toString()); 
-
-		System.out.println(lista.get(2).toString()); 
-		System.out.println(lista.get2(3).toString()); 
 
 
-System.out.println();
-		lista.delete(123);
-		System.out.println(lista.get2(1).toString()); 
-System.out.println();
+		String s = "()(()))))";
 
-		lista.delete2(1235);		
-		System.out.println(lista.get2(1).toString()); 
+		int n = s.length();
+
+		Stack<Integer> st = new Stack<Integer>();
+
+		int d[] = new int[n]; 
+		for (int i=0; i<n; i++) 
+		if (s.charAt(i)=='(') {
+			st.push(i);
+			d[i] = -1;
+		} else {
+			if (st.size()==0) d[i] = -1; 
+			else d[i] = st.top();
+			st.pop();
+		}
+
+		int res = 0, ant = 0; 
+
+		for (int i= n-1; i>-1; i--) {
+			if (d[i]==-1) continue;
+			int j = d[i]; 
+
+			System.out.println(ok(d, j, i)+" "+j+" "+i);
+			if (ok(d, j, i)) ant+=Math.abs(i-j)+1;
+			else {
+				res = Math.max(res, ant+2); 
+				ant = 0;
+			}
+			i = j;
+		}
+		res = Math.max(res, ant);
+		System.out.println();
+
+
+		System.out.println(res);
 	}
-	// 4, 123, 332, 4354
-	// 332, 4354, 4, 123
+	public static boolean ok(int d[], int i, int j) {
+		if (j-i==1) return true;
+		boolean res = true;
+		for (int k = j-1; k>i; k--) {
+			int jx = k, ix = d[k]; 
+			if (d[k]==-1) return false;
+			res&=ok(d, ix, jx); 
+			k = ix;
+		}
+		return res; 
+	}
 }

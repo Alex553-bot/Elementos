@@ -1,4 +1,5 @@
 // interfaz para los nodos SE
+package LSE;
 public class ListaSE<T extends Comparable> {
 	public NodoSE<T> root; 
 	public ListaSE() {
