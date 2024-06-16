@@ -52,8 +52,48 @@ public class BinaryTree<T>
 		}
 	} 
 
+	public void podar(int n) {
+		podar(this, 0, n); 
+	}
+	private void podar(BinaryTree<T> root, int i, int n) {
+		if (root==null) return; 
+		if (i==n-1) {
+			root.right = root.left = null; 
+		}
+		podar(root.right, i+1, n); 
+		podar(root.left, i+1, n); 
+	}
+
+	public boolean esDistribuido() 
+	{
+		return Math.abs(f(this, 0))<=1; 
+	}
+	private int f(BinaryTree<T> nodoActual, int r) {
+		if (nodoActual==null) return r;
+		if (nodoActual.left==null && nodoActual.right==null) 
+			r--;
+		else {
+			r+=f(nodoActual.left, r)+f(nodoActual.right, r)+1;
+		}
+		return r;
+	}
+
 	public int suma(BinaryTree<T> root) {
 		if (root==null) return 0; 
 		return 1+suma(root.left)+suma(root.right);
+	}
+
+	public int internosVerdaderos() {
+		return intf(left, false, 1)+intf(right, false, 0);
+	}
+	private int intf(BinaryTree<T> it, boolean entre, int i) {
+		if (it==null) return 0;
+		int res = 1;
+		if (it.left==null && it.right==null) res = 0;
+		if (i==0) {
+			return intf(it.left, true, i)+intf(it.right, entre, i)+(entre? res: 0);
+		} else {
+			return intf(it.left, entre, i)+intf(it.right, true, i)+(entre? res: 0);
+		}
 	}
 }
