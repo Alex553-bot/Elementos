@@ -1,0 +1,82 @@
+La entrada consiste de 2 lineas: 
+la primera linea corresponde a un entero n, correspondiente al numero de munecas existentes (desordenadas)
+la segunda linea contiene n cadenas que corresponden a los ids de cada munecas 
+La salida se ve de la siguiente manera: 
+Se imprimen m lineas correspondientes al numero de conjuntos esperados, cada linea contendra en orden lexicografico
+ los conjuntos esperados
+
+test 1: 
+6
+a a a a a a
+respuesta:
+a
+a
+a
+a
+a
+a
+
+
+test 2: 
+6
+a b c d e f
+respuesta: 
+a b c d e f
+
+test 3: 
+4
+aaa a aa b
+respuesta: 
+a aa aaa b
+
+test 4: 
+4
+b aaa a aa
+respuesta: 
+a aa aaa b
+
+test 5: 
+6
+d a e b c f
+respuesta: 
+a b c d e f
+
+test 6: 
+6
+abcdea cdeaab bcdeaa eaabcd deaabc aabcd
+respuesta: 
+aabcd abcdea bcdeaa cdeaab deaabc eaabcd
+
+test 7: 
+1
+a
+respuesta: 
+a
+
+test 8: 
+
+respuesta: 
+5
+a aa aaa aaaa aaaaa
+respuesta: 
+a aa aaa aaaa aaaaa
+
+test 9: 
+19
+a c a c a b a c a c a a b b b d e d c
+respuesta: 
+a
+a
+a b c
+a b c
+a b c d 
+a b c d e
+a c
+
+test 10: 
+7
+a b c a c a b
+respuesta: 
+a b c
+a b c
+a 

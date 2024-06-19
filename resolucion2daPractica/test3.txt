@@ -1,0 +1,87 @@
+La entrada es de la siguiente manera, para todos los casos el 'root' de tu arbol es el 1
+En la primera linea de la entrada se muestra un numero n, correspondiente a los n nodos existentes en el arbol i-ario
+Posteriormente en la siguiente linea se muestran n-1 numeros, donde el orden es importante el primer numero mostrado
+ es al nodo correspondiente al nodo 2, posteriormente el 3 y asi sucesivamente, cada numero mostrado, es el padre del 
+ nodo en cuestion
+ Por ejemplo si se tiene el siguiente caso: 
+ 3
+ 1 2
+ Significa que se tiene 3 nodos, numerados del 1 al 3, el 1 es root por lo que no tiene padre, el 2 tiene de padre a 1
+ y por ultimo 3 tiene de padre a 2 dando como resultado el siguiente arbol: 
+ 1 -> 2 -> 3
+
+test 1: 
+1
+respuesta: 
+1
+
+test 2: 
+13
+1 1 1 2 3 4 4 5 6 6 8 8 
+respuesta: 
+1 
+2 3 4 
+5 6 7 8 
+9 10 11 12 13 
+
+test 3: 
+8
+1 1 2 4 3 4 3
+respuesta; 
+1 
+2 3 
+4 6 8 
+5 7
+
+test 4: 
+6
+1 2 3 4 5
+respuesta: 
+1 
+2 
+3 
+4 
+5 
+6
+
+test 5: 
+10
+1 1 1 1 1 1 1 1 1
+respuesta: 
+1 
+2 3 4 5 6 7 8 9 10 
+
+test 6: 
+11
+1 1 1 2 3 4 3 6 9 1
+respuesta: 
+1 
+2 3 4 11 
+5 6 8 7 
+9 
+10 
+
+test 7: 
+6
+1 2 1 4 5
+respuesta: 
+1 
+2 4 
+3 5 
+6 
+
+test 8: 
+21
+1 1 1 1 2 3 4 5 3 1 2 5 3 7 3 5 1 3 6 8
+respuesta: 
+1 
+2 3 4 5 11 18 
+6 12 7 10 14 16 19 8 9 13 17 
+20 15 21 
+
+test 9: 
+2
+1
+respuesta: 
+1 
+2 

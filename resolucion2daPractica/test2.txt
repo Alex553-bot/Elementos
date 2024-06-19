@@ -1,0 +1,39 @@
+La entrada para este ejericio se rige de la siguiente manera: 
+en la primera linea se proporciona un numero n correspondiente a la longitud de la lista 
+La segunda linea contiene n numeros correspondientes a la lista y en ese orden 
+En la tercera linea tenemos un numero m que representa las consultas de swap que realizaremos a dicha lista
+Por ultimo se tienen m lineas siguientes, cada una de las cuales contiene 2 numeros i, j correspondientes 
+ a los indices que debemos aplicar la funcion swap(i, j)
+Por ultimo como salida por cada consulta se debe imprimir el estado actual de la lista. 
+
+test 1: 
+7
+7 3 4 5 0 2 8
+5
+1 6
+0 0
+0 6
+1 0
+0 1
+respuesta: 
+7 8 4 5 0 2 3
+7 8 4 5 0 2 3
+3 8 4 5 0 2 7
+8 3 4 5 0 2 7
+3 8 4 5 0 2 7
+
+test 2: 
+4
+3 2 4 1
+5
+0 3
+2 3
+1 1
+2 2
+0 3
+respuesta: 
+1 2 4 3
+1 2 3 4
+1 2 3 4
+1 2 3 4
+4 2 3 1

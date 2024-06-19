@@ -1,13 +1,13 @@
 //import LDEC.*;
 //import LDE.*; 
 
-import LSE.*; 
+//import LSE.*; 
 //import LSEC.*;
 
 //import Queues.*;
 //import Trees.*;
 
-import Trees.BinaryTree;
+import Trees.*;
 //import java.util.ArrayList;
 public class Main {
 	public static void main(String[] args) {

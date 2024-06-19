@@ -4,7 +4,7 @@ public class ListaSE<T extends Comparable> {
 	public NodoSE<T> root; 
 	public ListaSE() {
 		root = null; 
-	}
+	} 
 
 	// size, get, add, delete
 	public int size() {
