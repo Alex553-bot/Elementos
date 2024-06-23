@@ -7,7 +7,6 @@ public class Tree<T>
     public Tree(T data) {
         this.data = data; 
         nextLeaf = null; 
-
         childs = new ArrayList<>();
     }
 
@@ -18,9 +17,8 @@ public class Tree<T>
     }
     private void leafs(Tree<T> it, ArrayList<Tree<T>> v) {
         if (it.childs.size()==0) dfs(it, v);
-        else {
+        else 
             leafs(it.childs.get(0), v);
-        }
     }
     private void dfs(Tree<T> it, ArrayList<Tree<T>> v) {
         if (it==null) return; 
