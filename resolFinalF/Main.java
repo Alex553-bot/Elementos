@@ -1,7 +1,7 @@
 public class Main 
 {
 	public static void main(String[] args) {
-		/*int n, m; 
+		int n, m; 
 		n = 12; m= 8; 
 		int mapa[][] = new int[n][m]; 
 		int col[][] = new int[n][m];
@@ -15,7 +15,7 @@ public class Main
 		System.out.println(f(mapa, 4, 5, col)); 
 		for (int i= 0; i<n; i++, System.out.println()) 
 		for (int j= 0; j<m; j++) 
-			System.out.print((col[i][j] == 1? '*': ' '));*/
+			System.out.print((col[i][j] == 1? '*': ' '));
 			/*
 		BST<Integer> bst = new BST<Integer>(10);
 		for (int i= 1; i<=20; i++) 
@@ -23,8 +23,8 @@ public class Main
 		ListaDE<Integer> lista = bst.subsecuencia(5, 13); 
 		lista.print();
 		System.out.println();
-		bst.inorden();*/
-		System.out.println(ff(20));
+		bst.inorden();
+		System.out.println(ff(20));*/
 	}
 	public static String ff(int n) {
 		if (n == 1) return "0";
@@ -41,20 +41,21 @@ public class Main
 		int d = mapa[i][j]; 
 		int res =0;
 		mapa[i][j] =0; 
-		for (int x = i-d; x<=i+d; x++)
-		for (int y = j-d; y<=j+d; y++) {
-			if (Math.min(x, y)<0 || x>=mapa.length || y>=mapa[0].length) continue;
-			res+=f(mapa, x, y, col);
-		}
+		//for (int x = i-d; x<=i+d; x++)
+		//for (int y = j-d; y<=j+d; y++) {
+		//	if (Math.min(x, y)<0 || x>=mapa.length || y>=mapa[0].length) continue;
+		//	System.out.println(x+" "+y);
+		//	res+=f(mapa, x, y, col);
+		//}
 
-		//fforx(
-		//	Math.max(i-d, 0), 
-		//	Math.max(j-d, 0), 
-		//	Math.min(i+d+1, mapa.length), 
-		//	Math.min(j+d+1, mapa[0].length), 
-		//	mapa, 
-		//	col
-		//);
+		res+=fforx(
+			Math.max(i-d, 0), 
+			Math.max(j-d, 0), 
+			Math.min(i+d+1, mapa.length), 
+			Math.min(j+d+1, mapa[0].length), 
+			mapa, 
+			col
+		);
 		return res;
 	}
 	public static int fforx(int i, int j, int n, int m, int mapa[][], int col[][]) {
