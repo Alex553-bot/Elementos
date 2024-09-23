@@ -1,9 +1,103 @@
+import java.util.ArrayList;
+import java.util.Scanner; 
 public class Main {
 	public static void main(String[] args) {
-		for (int i = 0; i<5; i++) 
-		for (int l = 0; l<i+1; l++) 
-		for (int k = 0; k<i+1; k++) System.out.println(i+" "+l+" "+k+" "+conteoG(i, l, k)); 
+		Scanner sc = new Scanner(System.in); 
+		int n = sc.nextInt(); 
+		String a[] = new String[n]; 
+		for (int i= 0; i<n; i++) {
+			a[i] = sc.next();
+		}
+		f(a);
 	}
+// clase 22-09
+	public static int hanoi(int n) {
+		if (n==0) return 0; 
+		return 1+2*hanoi(n-1);
+	}
+	public static void printHanoi(int n, int a, int b) {
+		int c = 6-(a+b) ; 
+		if (n==1) {
+			System.out.println("Mover de pivote "+a+" hacia "+b); 
+		} else {
+			printHanoi(n-1, a, c); 
+			printHanoi(1, a, b); 
+			printHanoi(n-1, c, b);
+		}
+	}
+	public static void generar(int i, String a[], ArrayList<String> res) {
+		if (i==a.length) {
+			// imprimir res
+			printArray(0, res);
+		} else {
+			generar(i+1, a, res); 
+			res.add(a[i]); 
+			generar(i+1, a, res);
+			res.remove(a[i]);
+		}
+	}
+	public static void printArray(int i, ArrayList<String> res) {
+		if (i==res.size()) {
+			System.out.println();
+			return;
+		}
+		System.out.print(res.get(i)+" "); 
+		printArray(i+1, res);
+	}
+	public static void printArray2(int i, String res[], int n) {
+		if (i==res.length) {
+			System.out.println();
+			return;
+		}
+		System.out.print(res[i]+" "); 
+		printArray2(i+1, res, n);
+	}
+	// {"", "", ""}
+	public static void generar2(
+		int i, 
+		String a[], 
+		String res[], 
+		int j
+	) {
+		if (i==a.length) {
+			// imprimir res
+			printArray2(0, res, j);
+		} else {
+			generar2(i+1, a, res, j); 
+			res[j] = a[i]; 
+			generar2(i+1, a, res, j+1);
+			res[j] = "";
+		}
+	}
+
+	public static void printt(String a[], int i, boolean aux[]) {
+		if (i==a.length) {
+			System.out.println(); 
+		} else {
+			if (aux[i])
+				System.out.print(a[i].toString()); 
+			printt(a, i+1, aux);
+		}
+	}
+	public static void f(String a[]) {
+		boolean aux[] = new boolean[a.length];
+		f(a, 0, aux); 
+	}
+	private static void f(String a[], int i, boolean aux[]) {
+		int n = a.length; 
+		if (i==n) {
+			printt(a, 0, aux);
+		} else {
+			f(a, i+1, aux); 
+			aux[i] = true; 
+			f(a, i+1, aux); 
+			aux[i] = false; 
+		}
+	}
+
+
+
+// clase 15-09
 	public static int conteoG(int n, int l, int k) {
 		if (n<0) return 0; 
 		if (n==0) return 1; 
