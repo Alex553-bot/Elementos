@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class Main {
 	private static int n;
 	private static String estado = "RLDU";
+	/**
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in); 
 		n = sc.nextInt();
@@ -23,6 +24,37 @@ public class Main {
 		//	System.out.println();
 		//}  
 		pprint(0, 0, aux);
+	}**/
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in); 
+		int n = sc.nextInt(); 
+		// complete search : 
+		boolean v[][] = new boolean[n][n];
+		for (int i =0 ; i<n; i++) 
+		for (int j = 0; j<n; j++) v[i][j] = false;  
+		System.out.println(nqueen(v)); 
+	}
+	public static int nqueen(boolean v[][]) {
+		return nqueen(v, 0);
+	}
+	public static int nqueen(boolean [][]v, int x) {
+		if (x>=v.length) return 1; 
+		int res = 0; 
+		int n = v.length; 
+		for (int y = 0; y<v.length; y++) 
+			if (v[x][y]==false) {
+				// marcar posiciones
+				for (int i = x; i<n; i++) v[i][y] = true; 
+				for (int i = x, j = y; i<n && j>=0; i++, j--) v[i][j] = true; 
+				for (int i = x, j = y; i<n && j<n; i++, j++) v[i][j] = true; 
+				res+=nqueen(v, x+1); 
+				// desmarcado posiciones
+				for (int i = x; i<n; i++) v[i][y] = false; 
+				for (int i = x, j = y; i<n && j>=0; i++, j--) v[i][j] = false; 
+				for (int i = x, j = y; i<n && j<n; i++, j++) v[i][j] = false; 
+			}
+		return res;
 	}
 
 	public static void ffor(int i, int n, char aux[][]) {
