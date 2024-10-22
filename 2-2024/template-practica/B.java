@@ -4,6 +4,7 @@ import java.util.*;
 public class B{
     //Esta funcion es obligatoria, no cambiar, aqui es donde
     //realizan reciben los datos de entrada e imprimen los resultados
+    // NO TOCAR ESTE METODO
     public static void main(String [] args){
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(); 
