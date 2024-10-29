@@ -29,7 +29,7 @@ public class A {
 		int res = n;
 		if (i<n-1) res = f(i+1, j, v);
 		v[j] = i; 
-		res = Math.min(res, f(i+1, j+1, v));
+		res = min(res, f(i+1, j+1, v));
 		return res;
 	}
 }
