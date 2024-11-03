@@ -6,6 +6,7 @@ public class B {
 		in.close();
 	}
 	static int f(int n) {
+		if (n==0) return 0;
 		if (n==1) return 6;
 		if (n==2) return 15;
 		return 12+f(n-1);
