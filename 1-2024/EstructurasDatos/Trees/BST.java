@@ -1,8 +1,8 @@
-package Trees; 
 public class BST<T extends Comparable>
 {
     public BST<T> left; 
     public BST<T> right; 
+    public BST<T> parent; 
     public T value; 
 
     public BST(T value) {
@@ -17,10 +17,16 @@ public class BST<T extends Comparable>
     public void add(BST<T> leaf, BST<T> root) {
         int comp = root.value.compareTo(leaf.value); 
         if (comp<=0) {
-            if (root.right==null) root.right = leaf; 
+            if (root.right==null) {
+                root.right = leaf;
+                leaf.parent = root; 
+            } 
             else add(leaf, root.right); 
         } else {
-            if (root.left==null) root.left = leaf; 
+            if (root.left==null) {
+                root.left = leaf;
+                leaf.parent = root;
+            } 
             else add(leaf, root.left); 
         }
     }

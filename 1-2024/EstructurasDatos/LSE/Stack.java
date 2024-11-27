@@ -1,5 +1,5 @@
 package LSE;
-public class Stack<T extends Comparable> {
+public class Stack<T> {
     private NodoSE<T> root; 
 
     public Stack() {

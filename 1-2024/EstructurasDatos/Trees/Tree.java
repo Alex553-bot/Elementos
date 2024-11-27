@@ -1,14 +1,11 @@
-package Trees; 
-import LSE.*;
-public class Tree<T extends Comparable> implements Comparable {
-    ListaSE<Tree<T>> childs; 
+import java.util.ArrayList;
+public class Tree<T> {
+    ArrayList<Tree<T>> childs;
+    Tree<T> parent;
     public T value; 
     public Tree(T value) {
         this.value = value;
-    }
-
-    public int compareTo(Object o) {
-        Tree<T> b = (Tree<T>)o; 
-        return value.compareTo(b.value);
+        parent = null;
+        childs = new ArrayList<>();
     }
 }

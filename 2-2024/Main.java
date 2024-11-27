@@ -1,15 +1,42 @@
-import java.util.ArrayList;
-import java.util.Scanner; 
+import ds.*;
+import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in); 
-		int n = sc.nextInt(); 
-		String a[] = new String[n]; 
-		for (int i= 0; i<n; i++) {
-			a[i] = sc.next();
+		String s = sc.next();
+		int n = s.length(); 
+		ListaLSE<Character> lse = new ListaLSE<>();
+		for (int i = 0; i<n; i++) {
+			char c = s.charAt(i);
+			if (f(c)) {
+				char x = i==0? 'z': lse.get(0);
+				if (!d(x)) 
+					lse.add(new Character(x = i+1<n? (s.charAt(i+1)=='i'? 'u': 'i') : 'u')); 
+				lse.add(new Character(c));
+				lse.add(new Character(x));
+			} else lse.add(new Character(c));
 		}
-		f(a);
+
+		System.out.println(lse.gen());
+
+
+		sc.close();
 	}
+	static boolean f(char c) {
+		return c=='a' || c=='e'||c=='o';
+	}
+	static boolean d(char c) {
+		return c=='i'||c=='u';
+	}
+/*
+
+
+
+
+
+
+
+
 // clase 22-09
 	public static int hanoi(int n) {
 		if (n==0) return 0; 
@@ -123,5 +150,5 @@ public class Main {
 		if (n==0) return true; 
 		if (n<0 || k<=0) return false;
 		return llena(n-k, k);
-	}
+	}*/
 }
